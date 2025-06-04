@@ -1,0 +1,98 @@
+/* ------------------------------------------------------------------
+   SAS script: Area‑wise Net‑Migration – Simple Forecast & Plots
+   NO external files produced – results appear in the SAS Studio window
+   Author: ChatGPT – 05‑Jun‑2025
+   ------------------------------------------------------------------ */
+
+/* 0️⃣  – Library (edit path as needed) -------------------------------- */
+libname mylib "/home/u64230148/sasuser.v94";
+
+/* 1️⃣  – Analysis span & forecast horizon ----------------------------- */
+%let base_start = 2020;   /* last observed years in data            */
+%let base_end   = 2024;
+%let fc_start   = 2025;   /* first forecast year                    */
+%let fc_end     = 2030;   /* last  forecast year                    */
+
+/* 2️⃣  – Build a clean working set (no nationality filter) ------------ */
+data work.mig_anl;
+    set mylib.migration_final;
+    where &base_start <= Year_n <= &base_end and not missing(Net_Both_n);
+    keep Area Year_n Net_Both_n;
+run;
+
+/* 3️⃣  – Estimate β0 + β1·Year_n for each prefecture ------------------ */
+proc sort data=work.mig_anl; by Area; run;
+
+proc reg data=work.mig_anl noprint outest=work.coef(rename=(Year_n=Slope));
+    by Area;
+    model Net_Both_n = Year_n;
+run; quit;
+
+/* Keep only parameter rows (β0, β1) */
+data work.coef_parms(keep=Area Intercept Slope);
+    set work.coef;
+    if _TYPE_ = 'PARMS';
+run;
+
+/* 4️⃣  – Generate forecasts 2025‑2030 --------------------------------- */
+data work.forecast;
+    set work.coef_parms;
+    length Data_Type $8;
+    Data_Type = 'Forecast';
+    do Year_n = &fc_start to &fc_end;
+        Value = Intercept + Slope * Year_n;
+        output;
+    end;
+run;
+
+/* 5️⃣  – Actual data (re‑labelled for plotting) ----------------------- */
+data work.actual;
+    set work.mig_anl(rename=(Net_Both_n=Value));
+    length Data_Type $8;
+    Data_Type = 'Actual';
+run;
+
+/* 6️⃣  – Combine actual + forecast rows ------------------------------- */
+data work.plot_data;
+    set work.actual work.forecast;
+run;
+
+/* 7️⃣  – Plot: multiple panels (4 across) ----------------------------- */
+ods graphics / reset width=7in height=4.5in imagemap;
+
+title "Net Migration Rate – Actual (2020‑24) & Forecast (2025‑30)";
+title "Prefecture Net‑Migration Rate – Actual vs Forecast (2020‑30)";
+proc sgpanel data=work.plot_data;
+    panelby Area / columns=4 spacing=4 novarname;   /* novarname drops 'Area=' */
+    series x=Year_n y=Value / group=Data_Type markers;
+    colaxis label='Year';
+    rowaxis label='Net Migration Rate (%)';
+    keylegend / position=bottom across=2;
+run;
+
+title;  /* clear title */
+
+/* ---- Optional: one graph per prefecture with dynamic title ---------- */
+ods graphics / reset width=6.5in height=4in imagemap;
+proc sgplot data=work.plot_data;
+    by Area;                                   /* one image per Area */
+    title "Net‑Migration Rate – Actual & Forecast: #BYVAL(Area)";
+    series x=Year_n y=Value / group=Data_Type markers;
+    xaxis label='Year';
+    yaxis label='Net Migration Rate (%)';
+run;
+
+title;
+
+title;  /* clear title */
+
+/* 8️⃣  – Quick table preview (optional) ------------------------------- */
+proc print data=work.forecast(obs=50);
+    title "Sample of Forecast Values (first 50 rows)";
+run;
+
+/* ------------------------------------------------------------------
+   End of file – run entire block in SAS Studio.  The panel graph and
+   forecast table appear directly in the Results tab.  Remove or adjust
+   macro variables to suit your data.                                    
+   ------------------------------------------------------------------ */
