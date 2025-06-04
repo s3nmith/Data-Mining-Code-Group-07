@@ -1,0 +1,404 @@
+lahi
+hairybotter
+Invisible
+
+lahi — 15/05/2025 10:00
+We split the high dimensional, maybe 50D to smaller cubes of 3D or 4D (Shell Fragmentation). New surveys only touch the new smaller cubes. During a survey we can then use star method to go through each of the cubes and star method won't explode memory because it will keep rare values in separate "*" bucket. So it's like filing each new questionnaire into a handful of labelled boxes and any rare/one-off labels into a generic box.,
+We start with the cuboid, for example, Age x Education(from lecture). If there's not enough data, we can borrow additional data from the parent's reservoir and if that's not enough we join fragments and fetch more data. You return the aggregate with confidence interval.,
+ 
+NotTheAdmin — 15/05/2025 10:03
+Image
+Image
+Image
+lahi — 15/05/2025 10:07
+Question:
+
+The "sampling cubes"
+were proposed for
+multidimensional analysis with "sampling data" (e.g., survey data). In many real applications, the target data for "sampling" can be of high dimensionality (e.g., it is not unusual to have more than 50 dimensions in a survey data set).
+1) Design
+an efficient incremental update
+algorithm (way/method) for such a high-dimensional sampling cube.
+2) Discuss how to support higher quality drill-down given that some low-level cells may be empty or contain too few
+for reliable analysis.
+lahi — 21/05/2025 20:07
+we were top 5 barely
+Image
+hahah
+NotTheAdmin — 21/05/2025 20:55
+Thats a pretty good ranking
+lahi — 22/05/2025 07:47
+Here's a rough plan of what we should do and when for presentation:
+24th-25th weekend - gather data and try create a good data set 
+meet online 24th or 25th to set a data set
+the week of 26th to 30th, me and hema will try use SAP tools
+Taichi and kohta try use python for analysis 
+31st and 1st weekend work on the presentation and practice
+NotTheAdmin — 22/05/2025 09:25
+Sounds good
+lahi — 22/05/2025 09:55
+https://docs.google.com/document/d/1LHMSjDumzHiFs5UwQ7rXqA_l00_SbmV2-Qjrm0wGsc4/edit?usp=sharing
+Google Docs
+Week 6- Quiz
+Taichi Nishimura — 22/05/2025 09:56
+Image
+lahi — 22/05/2025 10:11
+Recursion in FP
+Generating Conditional Trees: For each item in the FP-Tree, a conditional FP-Tree is created.
+Recursive Mining: The algorithm recursively mines these conditional FP-Trees to find frequent itemsets.
+Combining Results: The frequent itemsets from each recursive call are combined to form the final set of frequent itemsets.
+Each freq item --> COnditional FP Tree
+Recursively mines FP-Tree to get frequent itemsets
+Frequent itemsets from each call are combined
+lahi — 22/05/2025 10:19
+https://www.e-stat.go.jp/en/stat-search/files?page=1&query=国勢調査%20核家族&layout=dataset&stat_infid=000031473116
+Portal Site of Official Statistics of Japan
+Population Census Housing Conditions of Household (22 is the result...
+e-Stat is a portal site for Japanese Government Statistics.
+Image
+https://www.e-stat.go.jp/en/dbview?sid=0003445078
+Portal Site of Official Statistics of Japan
+Population Census 2020 Population Census Basic Complete Tabulation ...
+e-Stat is a portal site for Japanese Government Statistics.
+Image
+kohta — 28/05/2025 14:11
+@Taichi Nishimura 政府統計のサイトから使えるデータセットを探して欲しいです。前回なんとなく住居や人口のデータが使いやすそうという議論で終わったけど、他に良さそうなデータがあればそれも共有して欲しいです。
+後2週間しかないのでラヒルくんが焦っています
+NotTheAdmin — 28/05/2025 14:25
+wait r we still finding datasets or did we decide on the housing dataset
+lahi — 28/05/2025 15:45
+Even tho we decided we need relevant csv files from the link to aggregate into a single dataset so
+NotTheAdmin — 28/05/2025 17:18
+ooo so u want more than just population and housing?
+lahi — 28/05/2025 19:06
+i mean use that + other relevant stuff like idk income of those areas too maybe? give us insights on why they may move to tokyo etc
+these kind of random but relevant data
+that website has everything from japan so it should be useful
+NotTheAdmin — 28/05/2025 19:08
+Hmm ok
+lahi — 28/05/2025 19:08
+imma start tmrw, gotta crunch a intern assignment for tonight
+if u got time plz find stuff and jus send here
+NotTheAdmin — 28/05/2025 19:08
+Ok me too then
+lahi — 28/05/2025 19:08
+like any csv file etc
+Taichi Nishimura — 28/05/2025 19:09
+Ok I’ll look for more
+lahi — 29/05/2025 09:32
+Population on male-female csv file:
+"Statistics name :","2020 Population Census Basic Complete Tabulation on Population and Households"
+"Table Number :","1-1-1"
+"Title :","[Population, Households, Sex, Age and Marital status] Population by Sex - Japan, Prefectures, Municipalities (including Municipalities as of 2000)"
+"Implementation date :","2020","Oct."
+"Cities, Towns and Villages :","-"
+... (329 KB left)
+Expand
+FEH_00200521_250529092943.csv
+379 KB
+House and Land vacancy by prefecture
+"Statistics name :","2023 Housing and Land Survey Basic Tabulation on Dwellings and Households Japan, Prefecture, Shi, Ku, Machi and Mura"
+"Table Number :","1-1-1"
+"Title :","[Dwellings and Households] Dwellings by Occupancy Status (9 Groups) - Japan, Prefecture and 21 Major Cities"
+"Implementation date :","2023","Oct."
+"Cities, Towns and Villages :","-"
+Expand
+HouseandLand vacancy.csv
+16 KB
+lahi — 29/05/2025 09:41
+@
+@NotTheAdmin the housing and land one is only 2023
+NotTheAdmin — 29/05/2025 09:42
+hmmm how abt population on male-female
+can u get the 2023 one
+prob better to stick to one year if can
+lahi — 29/05/2025 09:44
+this is from 2023
+Attachment file type: spreadsheet
+a00100.xlsx
+22.93 KB
+but it's not ordered by prefecture
+NotTheAdmin — 29/05/2025 09:45
+hmm
+lahi — 29/05/2025 09:49
+You are the general manager of ABC Convenience Store.
+The ABC convenience store has 100 branches. Each ABC convenience store branch does not necessarily carry the same product line. In addition, how they display their items should be different, and the customer demographics for each store are also different.
+When constructing association rules based on POS data from these 100 stores, what are the points to keep in mind?
+Please list them in detail as many as possible.
+Each group will be asked to present one for each.
+https://docs.google.com/document/d/1nSQhayYJ6ealIrm5vEEfHGPEZWGsXs_jPFnvB5MwVdM/edit?tab=t.0
+Google Docs
+Quiz - Association Rule
+Group 7
+Taichi Nishimura — 29/05/2025 13:26
+internal migration in 2023:
+"Statistics name :","Report on Internal Migration in Japan Annual report (Migration rate) 2020-"
+"Table Number :","001"
+"Title :","Rate of Intra-prefectural Migrants, In-migrants from Other Prefectures and Out-migrants to Other Prefectures by Sex for Japan, Prefectures, Tokyo Area, Nagoya Area, Osaka Area and 21 Major Cities (All nationalities) (from 2020)"
+"Implementation date :","-","-"
+"Cities, Towns and Villages :","-"
+... (14 KB left)
+Expand
+FEH_00200523_250529132409.csv
+64 KB
+NotTheAdmin — 29/05/2025 20:54
+@lahi u wanna call at 9?
+lahi — 29/05/2025 20:54
+yeah sure
+NotTheAdmin — 29/05/2025 20:54
+Ok
+NotTheAdmin
+ started a call that lasted an hour. — 29/05/2025 21:01
+lahi — 29/05/2025 21:05
+Getting started:
+https://video.sas.com/detail/video/4573016757001/getting-started-with-sas-studio 
+Brightcove
+Getting Started with SAS Studio - SAS Video Portal
+Enterprise Miner+
+https://video.sas.com/detail/video/4781662769001/creating-data-miner-models-using-sas-studio-and-the-rapid-predictive-modeler-task
+Brightcove
+Creating Data Miner Models Using SAS Studio and the Rapid Predictiv...
+https://support.sas.com/downloads/package.htm?pid=2647
+lahi — 29/05/2025 21:27
+/* Skip the first 12 lines which are metadata/notes */
+data WORK.MIGRATION;
+    infile '/home/u64230148/sasuser.v94/Japan Migration.csv' dsd firstobs=13 encoding='utf-8';
+    length 
+        Nat_Code $6 Nat_Aux $2 Nationality $20
+        Year_Code $10 Year_Aux $2 Year $4
+        Area_Code $5 Area_Aux $2 Area $30
+        Sex $12
+        Intra_Both $5 Intra_Male $5 Intra_Female $5
+        In_Both $5 In_Male $5 In_Female $5
+        Out_Both $5 Out_Male $5 Out_Female $5
+        Net_Both $5 Net_Male $5 Net_Female $5;
+
+    input 
+        Nat_Code $ Nat_Aux $ Nationality $ 
+        Year_Code $ Year_Aux $ Year $ 
+        Area_Code $ Area_Aux $ Area $ 
+        Sex $ 
+        Intra_Both $ Intra_Male $ Intra_Female $ 
+        In_Both $ In_Male $ In_Female $ 
+        Out_Both $ Out_Male $ Out_Female $ 
+        Net_Both $ Net_Male $ Net_Female $;
+run;
+
+proc contents data=WORK.MIGRATION; run;
+
+%web_open_table(WORK.MIGRATION);
+lahi — 29/05/2025 22:11
+%web_drop_table(WORK.MIGRATION);
+
+/* Step 1: Import CSV with proper handling of the complex structure */
+data WORK.MIGRATION_RAW;
+    infile '/home/u64230148/sasuser.v94/Japan Migration.csv' 
+           dsd firstobs=16 encoding='utf-8' missover;
+Expand
+message.txt
+5 KB
+lahi — 30/05/2025 08:40
+@NotTheAdmin @Taichi Nishimura Send me ur email so i can add you to the google slide presentation
+NotTheAdmin — 30/05/2025 08:40
+hemasetiawan123@gmail.com
+Taichi Nishimura — 30/05/2025 22:09
+tainishi1102@gmail.com
+NotTheAdmin — 30/05/2025 22:34
+@lahi did u end up getting a good predictive model for the dataset
+lahi — 30/05/2025 22:38
+i didnt test it after, imma do some tomorrow
+NotTheAdmin — 30/05/2025 22:38
+ok
+NotTheAdmin — 30/05/2025 22:40
+for this dataset u sent
+do u know if the values are percentages or like thousands of people
+lahi — 30/05/2025 22:51
+it is percentage i just checked the website
+its precentage relative to the pref population
+NotTheAdmin — 30/05/2025 22:53
+oh okok
+lahi — 31/05/2025 16:46
+i managed to create this @NotTheAdmin
+Image
+SAS gives an internal maps library btw
+NotTheAdmin — 31/05/2025 17:10
+Oh shit thats cool af
+lahi — 31/05/2025 17:10
+but we gotta narrow down on what we need to analyze
+im still not sure
+NotTheAdmin — 31/05/2025 17:11
+Ye
+I made a predictive model for the vacancy
+In the dataset u sent me
+lahi — 31/05/2025 17:11
+Oooh nice can u show me
+NotTheAdmin — 31/05/2025 17:11
+It’s on the slides
+lahi — 31/05/2025 17:11
+paste the results into the slides
+oh shi i didnt see
+NotTheAdmin — 31/05/2025 17:11
+Yea
+lahi — 31/05/2025 17:12
+wait how do i interpret this
+NotTheAdmin — 31/05/2025 17:12
+Yea thats the most important thing rn
+NotTheAdmin — 31/05/2025 17:12
+Uhh wait later i explain
+lahi — 31/05/2025 17:13
+i thought it was extrapolation of the 2013-2023 data put together but its smth to do w the model right
+do u think its possible to do smth like this ^
+NotTheAdmin — 31/05/2025 17:13
+Hmmm
+I think can
+But u have to manually combine 2013-2018-2023
+lahi — 31/05/2025 17:14
+yeaa but just find like some columns that are useful or rows
+u dont need to combine the whole thing
+NotTheAdmin — 31/05/2025 17:14
+And then maybe we can extrpolatr
+Yea
+lahi — 31/05/2025 17:14
+yep
+okok
+NotTheAdmin — 31/05/2025 17:14
+Hmm ok ill try to do that then
+lahi — 31/05/2025 17:14
+that might be enough tbh talk about migration patterns and then vacancies ig..
+NotTheAdmin — 31/05/2025 17:14
+Ooo true
+Yea only 10 min anyways
+lahi — 31/05/2025 17:15
+like i noticed, during 2024 theres a big net migration out in Ishikawa-ken cuz of the earthquake
+NotTheAdmin — 31/05/2025 17:15
+Hmmm yea we should point that out
+lahi — 31/05/2025 17:15
+and then areas like Fukuoka, Tokyo, Osaka always have high out and in because they are big cities so hgigh turnover
+NotTheAdmin — 31/05/2025 17:15
+Yea
+lahi — 31/05/2025 17:16
+okay i think we can yap for 10mins
+technically 8 mins 
+and 3 for questions so 
+NotTheAdmin — 31/05/2025 17:16
+Ooo yamana does love his Q&A
+﻿
+%web_drop_table(WORK.MIGRATION);
+
+/* Step 1: Import CSV with proper handling of the complex structure */
+data WORK.MIGRATION_RAW;
+    infile '/home/u64230148/sasuser.v94/Japan Migration.csv' 
+           dsd firstobs=16 encoding='utf-8' missover;
+    
+    length 
+        /* Independent Variables */
+        Nat_Code $6 Nat_Aux $2 Nationality $20
+        Year_Code $10 Year_Aux $2 Year $4
+        Area_Code $5 Area_Aux $2 Area $30
+        Sex $12
+        
+        /* Migration rates - initially as character with longer length */
+        Intra_Both $8 Intra_Male $8 Intra_Female $8
+        In_Both $8 In_Male $8 In_Female $8
+        Out_Both $8 Out_Male $8 Out_Female $8
+        Net_Both $8 Net_Male $8 Net_Female $8;
+        
+    input 
+        Nat_Code $ Nat_Aux $ Nationality $ 
+        Year_Code $ Year_Aux $ Year $ 
+        Area_Code $ Area_Aux $ Area $ 
+        Sex $ 
+        Intra_Both $ Intra_Male $ Intra_Female $ 
+        In_Both $ In_Male $ In_Female $ 
+        Out_Both $ Out_Male $ Out_Female $ 
+        Net_Both $ Net_Male $ Net_Female $;
+run;
+
+/* Step 2: Check what the raw data looks like */
+proc print data=WORK.MIGRATION_RAW(obs=5);
+    title "First 5 observations of raw data";
+run;
+
+/* Step 3: Convert to numeric values with better error handling */
+data WORK.MIGRATION;
+    set WORK.MIGRATION_RAW;
+    
+    /* Convert strings to numeric, handling missing values and negatives properly */
+    Intra_Both_n  = input(strip(Intra_Both), ?? best12.);
+    Intra_Male_n  = input(strip(Intra_Male), ?? best12.);
+    Intra_Female_n= input(strip(Intra_Female), ?? best12.);
+    
+    In_Both_n     = input(strip(In_Both), ?? best12.);
+    In_Male_n     = input(strip(In_Male), ?? best12.);
+    In_Female_n   = input(strip(In_Female), ?? best12.);
+    
+    Out_Both_n    = input(strip(Out_Both), ?? best12.);
+    Out_Male_n    = input(strip(Out_Male), ?? best12.);
+    Out_Female_n  = input(strip(Out_Female), ?? best12.);
+    
+    Net_Both_n    = input(strip(Net_Both), ?? best12.);
+    Net_Male_n    = input(strip(Net_Male), ?? best12.);
+    Net_Female_n  = input(strip(Net_Female), ?? best12.);
+    
+    /* Clean up other character variables */
+    Year_n = input(Year, ?? 4.);
+    
+    /* Add labels */
+    label
+        Intra_Both_n  = "Intra-prefectural Migration Rate (Both) [%]"
+        Intra_Male_n  = "Intra-prefectural Migration Rate (Male) [%]"
+        Intra_Female_n= "Intra-prefectural Migration Rate (Female) [%]"
+        In_Both_n     = "In-migrants Rate (Both) [%]"
+        In_Male_n     = "In-migrants Rate (Male) [%]"
+        In_Female_n   = "In-migrants Rate (Female) [%]"
+        Out_Both_n    = "Out-migrants Rate (Both) [%]"
+        Out_Male_n    = "Out-migrants Rate (Male) [%]"
+        Out_Female_n  = "Out-migrants Rate (Female) [%]"
+        Net_Both_n    = "Net Migration Rate (Both) [%]"
+        Net_Male_n    = "Net Migration Rate (Male) [%]"
+        Net_Female_n  = "Net Migration Rate (Female) [%]"
+        Year_n        = "Year (Numeric)"
+        Nationality   = "Nationality"
+        Area          = "Prefecture/Area Name";
+run;
+
+/* Step 4: Check for conversion issues */
+proc freq data=WORK.MIGRATION;
+    tables Intra_Both_n In_Both_n Out_Both_n Net_Both_n / missing;
+    title "Check for missing values after conversion";
+run;
+
+/* Step 5: Clean final dataset - keep only what you need */
+data WORK.MIGRATION_FINAL;
+    set WORK.MIGRATION;
+    
+    /* Keep relevant variables */
+    keep Nationality Year_n Area 
+         Intra_Both_n Intra_Male_n Intra_Female_n
+         In_Both_n In_Male_n In_Female_n
+         Out_Both_n Out_Male_n Out_Female_n
+         Net_Both_n Net_Male_n Net_Female_n
+         Area_Code Nat_Code;
+         
+    /* Filter out rows with missing area names if needed */
+    if Area ne '' and Year_n ne .;
+run;
+
+/* Step 6: Verify the structure */
+proc contents data=WORK.MIGRATION_FINAL varnum;
+    title "Final Dataset Structure";
+run;
+
+/* Step 7: Show sample of converted data */
+proc print data=WORK.MIGRATION_FINAL(obs=10);
+    title "Sample of Final Converted Data";
+    format Intra_Both_n In_Both_n Out_Both_n Net_Both_n 8.2;
+run;
+
+/* Step 8: Save permanently */
+libname mylib '/home/u64230148/sasuser.v94';
+data mylib.migration_final;
+    set WORK.MIGRATION_FINAL;
+run;
+
+%web_open_table(WORK.MIGRATION_FINAL);
